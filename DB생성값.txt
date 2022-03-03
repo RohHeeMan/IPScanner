@@ -1,0 +1,62 @@
+-- IPStatus 테이블 생성
+CREATE TABLE IPStatus(
+  NO_SEQ          NUMBER        PRIMARY KEY, -- 기본키(시퀀스 적용할 컬럼)
+  Server          NVARCHAR2(10) NOT NULL,
+  Equip           NVARCHAR2(10) NOT NULL,
+  IP              NVARCHAR2(20) NOT NULL,
+  Port            NVARCHAR2(10) NOT NULL,
+  LiveIP          NVARCHAR2(1) NOT NULL,
+  LivePort        NVARCHAR2(1) NOT NULL,
+  LiveConnection  NVARCHAR2(1) NOT NULL,
+  Create_Time     NVARCHAR2(14)
+);
+
+COMMENT ON COLUMN IPStatus.Server IS '서버';
+COMMENT ON COLUMN IPStatus.Equip IS '장비명';
+COMMENT ON COLUMN IPStatus.IP IS 'IP';
+COMMENT ON COLUMN IPStatus.Port IS 'Port';
+COMMENT ON COLUMN IPStatus.LiveIP IS 'IP연결유무';
+COMMENT ON COLUMN IPStatus.LivePort IS 'Port연결유무';
+COMMENT ON COLUMN IPStatus.LiveConnection IS '통신가능여부';
+COMMENT ON COLUMN IPStatus.Create_Time IS '등록시간';
+
+-- 시퀀스 생성
+CREATE SEQUENCE NO_SEQ
+  START WITH 1
+  INCREMENT BY 1
+  MAXVALUE 9999999999999
+  MINVALUE 1
+  NOCYCLE;
+  
+
+insert into IPStatus values ('EAP1','LV1','10.12.14.6','80','Y','N','N','20223203053228')
+
+SELECT TO_CHAR(SYSDATE, 'YYYYMMDDHHMMDD') FROM DUAL;
+MessageBox.Show(System.DateTime.Now.ToString("yyyymmddhhmmss"));
+
+--데이터 추가
+INSERT INTO MEMBERINFO
+VALUES(NO_SEQ.NEXTVAL, 'JOKER', '01012345678');
+
+INSERT INTO MEMBERINFO
+VALUES(NO_SEQ.NEXTVAL, 'BATMAN', '01012340987');
+
+INSERT INTO MEMBERINFO
+VALUES(NO_SEQ.NEXTVAL, 'Quinn', '01010041004');
+
+--MEMBERINFO 테이블 검색
+SELECT * FROM MEMBERINFO;
+
+
+-- 장비명, ip, port, 시간, 날자, 상태값
+
+Connection
+Equip
+IP
+PORT
+
+IP_Connect  : Y
+Port_Connect : N
+
+날자 
+시간
